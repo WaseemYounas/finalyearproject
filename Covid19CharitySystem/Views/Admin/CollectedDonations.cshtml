@@ -1,0 +1,80 @@
+﻿@model List<Covid19CharitySystem.Models.Donation>
+@{
+    ViewBag.Title = "CollectedDonations";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+@using Covid19CharitySystem.Models
+@using Covid19CharitySystem.BL
+<section class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Donations under process</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Donations Under Process</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Picking Location</th>
+                                        <th>Added at</th>
+                                        <th>Donor Name</th>
+                                        <th>Donor Email</th>
+                                        <th>Donor Phone</th>
+                                        <th>Status</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        User obj = new UserBL().getUserById(Convert.ToInt32(item.User_Id));
+                                        <tr>
+                                            <td>@item.Type</td>
+                                            <td>@item.PickLocation</td>
+                                            <td>@item.CreatedAt.ToShortDateString()</td>
+                                            <td> @obj.Name</td>
+                                            <td> @obj.Email</td>
+                                            <td> @obj.Phone</td>
+                                            <td><span class="label label-success">Collected</span></td>
+                                        </tr>
+                                    }
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</section>
+

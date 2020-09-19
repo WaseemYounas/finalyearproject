@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "AddDonation";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<section class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Add Donation</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Info boxes -->
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Donate</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="@Url.Action("PostDonation","Donor")" method="post">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Type</label>
+                                            <select class="form-control" name="Type">
+                                                <option disabled selected value="">Select type</option>
+                                                <option value="Food">Food</option>
+                                                <option value="Ration">Ration</option>
+                                                <option value="Clothes">Clothes</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="IsActive" value="1" />
+                                    <input type="hidden" name="CreatedAt" value="@DateTime.Now" />
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Pick Up Location</label>
+                                            <input type="text" class="form-control" name="PickLocation" placeholder="Enter ...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+

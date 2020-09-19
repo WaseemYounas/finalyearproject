@@ -1,0 +1,101 @@
+﻿@model List<Covid19CharitySystem.Models.Task>
+@{
+    ViewBag.Title = "TaskList";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+@using Covid19CharitySystem.Models
+@using Covid19CharitySystem.BL
+<section class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Donations under process</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Donations Under Process</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Picking Location</th>
+                                        <th>Added at</th>
+                                        <th>Donor Name</th>
+                                        <th>Donor Email</th>
+                                        <th>Donor Phone</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @*@foreach (var item in Model)
+                                    {
+                                        User obj = new UserBL().getUserById(Convert.ToInt32(item.User_Id));
+                                        <tr>
+                                            <td>@item.Type</td>
+                                            <td>@item.PickLocation</td>
+                                            <td>@item.CreatedAt.ToShortDateString()</td>
+                                            <td> @obj.Name</td>
+                                            <td> @obj.Email</td>
+                                            <td> @obj.Phone</td>
+                                            <td><a class="btn btn-sm btn-info" href="#editModal" data-toggle="modal" data-target="#editModal">Assign Task</a> | <a class="btn btn-sm btn-warning" href="#editModal">Remove</a> </td>
+                                        </tr>
+                                    }*@
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+        <div class="modal fade" id="editModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Default Modal</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body…</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </section>
+    <!-- /.content -->
+</section>
+
