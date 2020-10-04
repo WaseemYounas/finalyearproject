@@ -41,6 +41,7 @@
                                             <th>Donation Type</th>
                                             <th>PickUp</th>
                                             <th>Donated On</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
@@ -48,12 +49,13 @@
                                         @{ int count = 1;}
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>@count</td>
-                                                <td>@item.Type</td>
-                                                <td> @item.PickLocation</td>
-                                                <td>@item.CreatedAt.ToShortDateString()</td>
-                                            </tr>
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Type</td>
+                                            <td> @item.PickLocation</td>
+                                            <td>@item.CreatedAt.ToShortDateString()</td>
+                                            <td><button class="btn btn-sm btn-danger" onclick="RemoveDonation('@item.Id')">Remove</button> </td>
+                                        </tr>
                                             count++;
                                         }
 
@@ -71,4 +73,26 @@
         </section>
         <!-- /.content -->
         </section>
+    <script>
+    function RemoveDonation(id, status) {
+        $.ajax({
+            url: "@Url.Action("RemoveDonation","Donor")",
+            type: "post",
+            data: {dId:id,},
+            success: function (response) {
+
+                if (response == 1) {
+                    alert("Donation removed successfully.");
+                    location.reload();
+                }
+                else {
+                    alert("Error");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    </script>
 

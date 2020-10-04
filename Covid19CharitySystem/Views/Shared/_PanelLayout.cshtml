@@ -15,6 +15,7 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="~/Content/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/Content/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link href="~/Content/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" rel="stylesheet" />
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Content/dist/css/adminlte.min.css">
     <!-- Select2 -->
@@ -111,7 +112,6 @@
                                     <p>
                                         Manage Donations
                                         <i class="fas fa-angle-left right"></i>
-                                        <span class="badge badge-info right">6</span>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
@@ -149,7 +149,6 @@
                                     <p>
                                         Donation Options
                                         <i class="fas fa-angle-left right"></i>
-                                        <span class="badge badge-info right">6</span>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
@@ -171,159 +170,38 @@
                         }
                         else
                         {
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-chart-pie"></i>
+                            <li class="nav-item menu-open">
+                                <a href="@Url.Action("Index","Volunteer")" class="nav-link active">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
-                                        Charts
-                                        <i class="right fas fa-angle-left"></i>
+                                        Dashboard
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/charts/chartjs.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ChartJS</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/charts/flot.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Flot</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/charts/inline.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Inline</p>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
+                                    <i class="nav-icon fas fa-copy"></i>
                                     <p>
-                                        UI Elements
+                                        Manage Tasks
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="pages/UI/general.html" class="nav-link">
+                                        <a href="@Url.Action("TaskList","Volunteer")" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>General</p>
+                                            <p>New Tasks</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="pages/UI/icons.html" class="nav-link">
+                                        <a href="@Url.Action("CompletedTaskList","Volunteer")" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Icons</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/buttons.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Buttons</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/sliders.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Sliders</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/modals.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Modals & Alerts</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/navbar.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Navbar & Tabs</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/timeline.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Timeline</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/ribbons.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Ribbons</p>
+                                            <p>Completed Tasks</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        Forms
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/forms/general.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>General Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/advanced.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Advanced Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/editors.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Editors</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/validation.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Validation</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-table"></i>
-                                    <p>
-                                        Tables
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/tables/simple.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Simple Tables</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/tables/data.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>DataTables</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/tables/jsgrid.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>jsGrid</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-}
+                        }
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -336,7 +214,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2014-2020.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.1.0-pre
@@ -373,6 +251,7 @@
     <script src="~/Content/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Content/plugins/datatables-buttons/js/buttons.html5.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Content/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -383,6 +262,9 @@
             $("#example1").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                buttons: [
+                    'csv', 'excel', 'pdf', 'print'
+                ]
             });
             //Initialize Select2 Elements
             $('.select2').select2()

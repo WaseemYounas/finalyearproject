@@ -40,18 +40,26 @@
                         <form action="@Url.Action("PostTask","Admin")" method="post">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <!-- text input -->
                                         <input type="hidden" name="Donation_Id" value="@ViewBag.donationId" />
                                         <div class="form-group">
                                             <label>Select Volunteer</label>
                                             <select class="form-control select2" name="User_Id" style="width: 100%;">
-                                                @foreach (var item in ViewBag.volunteer)
+                                                @foreach (var item in ViewBag.volunteers)
                                                 {
                                                     <option value="@item.Id">@item.Name</option>
                                                 }
                                             </select>
                                         </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label>Select Volunteer</label>
+                                        <input type="text" class="form-control" value="@ViewBag.donationType" readonly />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label>Select Volunteer</label>
+                                        <input type="text" class="form-control" value="@ViewBag.donationLoc" readonly />
                                     </div>
                                     <input type="hidden" name="IsActive" value="1" />
                                     <input type="hidden" name="CreatedAt" value="@DateTime.Now" />

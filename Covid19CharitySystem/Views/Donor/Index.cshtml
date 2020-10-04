@@ -38,8 +38,8 @@
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Previous Donations</span>
-                            <span class="info-box-number">4</span>
+                            <span class="info-box-text">Total Donations</span>
+                            <span class="info-box-number">@{int count=ViewBag.allDonations == null ? 0 : ViewBag.allDonations;} @count</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -53,7 +53,7 @@
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
-               
+
                 <!-- /.col -->
             </div>
             </div>

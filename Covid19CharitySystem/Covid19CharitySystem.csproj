@@ -2365,6 +2365,7 @@
     <Content Include="Views\Admin\CollectedDonations.cshtml" />
     <Content Include="Views\Admin\AssignTask.cshtml" />
     <Content Include="Views\Volunteer\TaskList.cshtml" />
+    <Content Include="Views\Volunteer\CompletedTaskList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ModelClasses\" />

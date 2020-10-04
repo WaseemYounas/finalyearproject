@@ -63,7 +63,7 @@ namespace Covid19CharitySystem.DAL
         {
             using (CharitySystemDBContext db = new CharitySystemDBContext())
             {
-                User obj = db.User.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
+                User obj = db.User.Where(x => x.Email == email && x.Password == password&&x.IsActive==1).FirstOrDefault();
                 return obj;
             }
         }
@@ -112,13 +112,15 @@ namespace Covid19CharitySystem.DAL
             return true;
         }
 
-        public void DeleteDonation(int _id)
+        public bool DeleteDonation(int _id)
         {
             using (CharitySystemDBContext db = new CharitySystemDBContext())
             {
                 db.Donation.Remove(db.Donation.FirstOrDefault(x => x.Id == _id));
                 db.SaveChanges();
+                return true;
             }
+            return false;
         }
         #endregion
 

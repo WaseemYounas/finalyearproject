@@ -13,6 +13,11 @@ namespace Covid19CharitySystem.Controllers
         // GET: Donor
         public ActionResult Index()
         {
+            if (Session["DonorId"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            ViewBag.allDonations = new UserBL().getDonationList().Where(x => x.User_Id == Convert.ToInt32(Session["DonorId"])).Count();
             return View();
         }
         public ActionResult Logout()
@@ -23,6 +28,10 @@ namespace Covid19CharitySystem.Controllers
         }
         public ActionResult AddDonation()
         {
+            if (Session["DonorId"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
         [HttpPost]
@@ -34,8 +43,19 @@ namespace Covid19CharitySystem.Controllers
         }
         public ActionResult PreviousDonations()
         {
+            if (Session["DonorId"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             List<Donation> list = new UserBL().getDonationList();
             return View(list);
+        }
+        public JsonResult RemoveDonation(int dId)
+        {
+            bool temp = new UserBL().DeleteDonation(dId);
+            if (temp)
+                return Json(1);
+            return Json(-1);
         }
     }
 }

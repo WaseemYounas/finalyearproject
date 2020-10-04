@@ -1,8 +1,9 @@
-﻿@model List<Covid19CharitySystem.Models.Donation>
+﻿@model List<Covid19CharitySystem.Models.Task>
 @{
-    ViewBag.Title = "RecentDonations";
+    ViewBag.Title = "CompletedTaskList";
     Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
+
 @using Covid19CharitySystem.Models
 @using Covid19CharitySystem.BL
 <section class="content-wrapper">
@@ -16,7 +17,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Donations under process</li>
+                        <li class="breadcrumb-item active">Completed Tasks</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -30,7 +31,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Donations Under Process</h3>
+                            <h3 class="card-title">Completed Task</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -43,25 +44,25 @@
                                         <th>Donor Name</th>
                                         <th>Donor Email</th>
                                         <th>Donor Phone</th>
-                                        <th>Action</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        User obj = new UserBL().getUserById(Convert.ToInt32(item.User_Id));
+                                        Donation obj = new UserBL().getDonationById(Convert.ToInt32(item.Donation_Id));
+                                        if (obj != null)
+                                        {
+                                            User user = new UserBL().getUserById(Convert.ToInt32(obj.User_Id));
                                         <tr>
-                                            <td>@item.Type</td>
-                                            <td>@item.PickLocation</td>
-                                            <td>@item.CreatedAt.ToShortDateString()</td>
-                                            <td> @obj.Name</td>
-                                            <td> @obj.Email</td>
-                                            <td> @obj.Phone</td>
-                                            <td><a class="btn btn-sm btn-info" href="@Url.Action("AssignTask","Admin",new { Did=item.Id,Dtype=item.Type,Dloc=item.PickLocation})" >Assign Task</a>  </td>
+                                            <td>@obj.Type</td>
+                                            <td>@obj.PickLocation</td>
+                                            <td>@obj.CreatedAt.ToShortDateString()</td>
+                                            <td> @user.Name</td>
+                                            <td> @user.Email</td>
+                                            <td> @user.Phone</td>
                                         </tr>
+                                        }
                                     }
-
                             </table>
                         </div>
                         <!-- /.card-body -->

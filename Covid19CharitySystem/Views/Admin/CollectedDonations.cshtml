@@ -52,15 +52,23 @@
                                     @foreach (var item in Model)
                                     {
                                         User obj = new UserBL().getUserById(Convert.ToInt32(item.User_Id));
-                                        <tr>
-                                            <td>@item.Type</td>
-                                            <td>@item.PickLocation</td>
-                                            <td>@item.CreatedAt.ToShortDateString()</td>
-                                            <td> @obj.Name</td>
-                                            <td> @obj.Email</td>
-                                            <td> @obj.Phone</td>
-                                            <td><span class="label label-success">Collected</span></td>
-                                        </tr>
+                                    <tr>
+                                        <td>@item.Type</td>
+                                        <td>@item.PickLocation</td>
+                                        <td>@item.CreatedAt.ToShortDateString()</td>
+                                        <td> @obj.Name</td>
+                                        <td> @obj.Email</td>
+                                        <td> @obj.Phone</td>
+                                        @if (item.Status == 0)
+                                        {
+                                            <td><span class="badge badge-warning">Pending</span></td>
+                                        }
+                                        else
+                                        {
+                                            <td><span class="badge badge-success">Collected</span></td>
+                                        }
+
+                                    </tr>
                                     }
 
                             </table>

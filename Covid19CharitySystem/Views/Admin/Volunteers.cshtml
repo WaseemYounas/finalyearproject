@@ -49,14 +49,22 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>@item.Name</td>
-                                            <td>@item.Email</td>
-                                            <td>@item.Phone</td>
-                                            <td> @item.Address</td>
-                                            <td>@item.CreatedAt.ToShortDateString()</td>
-                                            <td><a class="btn btn-sm" href="#editModal"><i class="fa fa-pencil"></i></a> | <a class="btn btn-sm" href="#editModal"><i class="fa fa-pencil"></i></a> | <a class="btn btn-sm" href="#editModal"><i class="fa fa-pencil"></i></a></td>
-                                        </tr>
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.Phone</td>
+                                        <td> @item.Address</td>
+                                        <td>@item.CreatedAt.ToShortDateString()</td>
+                                        @if (item.IsActive == 0)
+                                        {
+                                            <td><button class="btn btn-sm btn-info" onclick="BlockUser('@item.Id',1)">Un-Block</button> </td>
+                                        }
+                                        else
+                                        {
+                                            <td><button class="btn btn-sm btn-warning" onclick="BlockUser('@item.Id',0)">Block</button> </td>
+                                        }
+
+                                    </tr>
                                     }
 
                             </table>
@@ -73,4 +81,26 @@
     </section>
     <!-- /.content -->
 </section>
+<script>
+    function BlockUser(id,status) {
+        $.ajax({
+            url: "@Url.Action("BlockUser","Admin")",
+            type: "post",
+            data: {id:id,status:status},
+            success: function (response) {
+
+                if (response == 1) {
+                    alert("Status updated successfully.");
+                    location.reload();
+                }
+                else {
+                    alert("Error");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+</script>
 

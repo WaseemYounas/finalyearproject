@@ -29,17 +29,28 @@
             <!-- Info boxes -->
             <div class="row">
                 <div class="col-12 col-sm-4 col-md-3">
-
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-12 col-sm-4 col-md-3">
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-
                         <div class="info-box-content">
-                            <span class="info-box-text">Previous Donations</span>
-                            <span class="info-box-number">4</span>
+                            <span class="info-box-text">New Tasks</span>
+                            <span class="info-box-number">@{int count = ViewBag.newtask == null ? 0 : ViewBag.newtask;} @count</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <!-- /.col -->
+                <div class="col-12 col-sm-4 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Completed Tasks</span>
+                            <span class="info-box-number">@{int count1 = ViewBag.completedtask == null ? 0 : ViewBag.completedtask;} @count1</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -48,7 +59,6 @@
                 <!-- /.col -->
                 <!-- fix for small devices only -->
                 <div class="clearfix hidden-md-up"></div>
-
                 <div class="col-12 col-sm-4 col-md-3">
                     <!-- /.info-box -->
                 </div>

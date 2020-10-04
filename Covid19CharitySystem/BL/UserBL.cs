@@ -12,7 +12,7 @@ namespace Covid19CharitySystem.BL
         #region User
         public List<User> getUserList()
         {
-            return new UserDAL().getUsersList();
+            return new UserDAL().getUsersList().Where(x=>x.IsActive==1).ToList();
         }
 
         public User getUserById(int _id)
@@ -89,9 +89,10 @@ namespace Covid19CharitySystem.BL
 
             return new UserDAL().UpdateDonation(_Donation);
         }
-        public void DeleteDonation(int _id)
+        public bool DeleteDonation(int _id)
         {
-            new UserDAL().DeleteDonation(_id);
+            bool temp=new UserDAL().DeleteDonation(_id);
+            return temp;
         }
         #endregion
 
